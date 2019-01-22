@@ -19,6 +19,7 @@ class user(models.Model):
 	Numm = models.CharField(max_length=15, verbose_name="Номер телефона")
 	Dolj = models.CharField(max_length=15, verbose_name="Должность")
 	StajR = models.CharField(max_length=15, verbose_name="должность")
+	Passw = models.CharField(max_length=50, verbose_name="Пароль" )
 
 	def __str__(self):
 		return self.Fam
