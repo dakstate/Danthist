@@ -2,16 +2,175 @@
 <html>
 <head>
 	<title></title>
+	{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'clinic/css/style.css' %}">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 <body>
-  <form>
-   <p>Выберите дату: <input type="date" name="calendar">
-   <input type="submit" value="Отправить"></p>
-  </form>
-    <form>
-   <p>В какое время запускать Cron?</p>
-   <p><input type="time" name="cron" value="03:15" min="00:01" max="06:00"></p>
-   <p><input type="submit"></p>
-  </form>
-</body>
+	<div class="container">
+		<header class="blog-header py-3">
+				<div class="row flex-nowrap justify-content-between align-items-center">
+					<div class="col-4 pt-1">
+						<a class="text-muted" href="#">Расписание приемов</a>
+					</div>
+					<div class="col-4 text-center">
+						<a class="blog-header-logo text-dark" href="#">Стоматология "Вылечим всё!"</a>
+					</div>
+					<div class="col-4 d-flex justify-content-end align-items-center">
+						<a class="btn btn-sm btn-outline-secondary" href="/lk">Выйти из учетной записи</a>
+					</div>
+				</div>
+			</header>
+
+		<div class="nav-scroller py-1 mb-2">
+      <nav class="navbar navbar-dark bg-dark">
+          <!-- <a class="p-2 text-muted" href="#">Клиенты</a>
+          <a class="p-2 text-muted" href="#">Врачи</a>
+          <a class="p-2 text-muted" href="#">Новости</a>
+          <a class="p-2 text-muted" href="#">Услуги</a>
+          <a class="p-2 text-muted" href="#">Business</a>
+          <a class="p-2 text-muted" href="#">Politics</a>
+          <a class="p-2 text-muted" href="#">Opinion</a>
+          <a class="p-2 text-muted" href="#">Science</a>
+          <a class="p-2 text-muted" href="#">Health</a>
+          <a class="p-2 text-muted" href="#">Style</a>
+          <a class="p-2 text-muted" href="#">Travel</a> -->
+					<div class="dropdown">
+  					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    					Клиенты
+					  </button>
+  					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+  						  <a class="dropdown-item" href="#">Добавить</a>
+  						  <a class="dropdown-item" href="#">Редактировать</a>
+					  </div>
+					</div>
+					<div class="dropdown">
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Врачи
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a class="dropdown-item" href="#">Добавить</a>
+								<a class="dropdown-item" href="#">Редактировать</a>
+						</div>
+				</div>
+				<div class="dropdown">
+					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Новости
+					</button>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" href="#">Добавить</a>
+							<a class="dropdown-item" href="#">Редактировать</a>
+					</div>
+				</div>
+				<div class="dropdown">
+					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Услуги
+					</button>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" href="#">Добавить</a>
+							<a class="dropdown-item" href="#">Редактировать</a>
+					</div>
+				</div>
+			</nav>
+		</div>
+		<br>
+		<form class="form-horizontal">
+  <div class="form-group">
+    <label for="text" class="col-xs-2 control-label">Имя:</label>
+    <div class="col-xs-10">
+      <input type="text" class="form-control" id="text" placeholder="Имя">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="text" class="col-xs-2 control-label">Фамиля:</label>
+    <div class="col-xs-10">
+      <input type="text" class="form-control" id="text" placeholder="Фамилия">
+    </div>
+  </div>
+	<div class="form-group">
+		<label for="text" class="col-xs-2 control-label">Отчество</label>
+		<div class="col-xs-10">
+			<input type="text" class="form-control" id="text" placeholder="Отчество">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="text" class="col-xs-2 control-label">Номер телефона:</label>
+		<div class="col-xs-10">
+			<input type="text" class="form-control" id="text" placeholder="Номер телефона">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="text" class="col-xs-2 control-label">Отчество</label>
+		<div class="col-xs-10">
+			<input type="text" class="form-control" id="text" placeholder="Отчество">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="text" class="col-xs-2 control-label">Дата рождения</label>
+		<div class="col-xs-10">
+			<input type="text" class="form-control" id="text" placeholder="Отчество">
+		</div>
+	</div>
+  <div class="form-group">
+    <div class="col-xs-offset-2 col-xs-10">
+      <button type="submit" class="btn btn-default">Добавить</button>
+    </div>
+  </div>
+</form>
+<br>
+<form class="form-horizontal">
+<div class="form-group">
+<label for="text" class="col-xs-2 control-label">Имя:</label>
+<div class="col-xs-10">
+	<input type="text" class="form-control" id="text" placeholder="Имя">
+</div>
+</div>
+<div class="form-group">
+<label for="text" class="col-xs-2 control-label">Фамиля:</label>
+<div class="col-xs-10">
+	<input type="text" class="form-control" id="text" placeholder="Фамилия">
+</div>
+</div>
+<div class="form-group">
+<label for="text" class="col-xs-2 control-label">Отчество</label>
+<div class="col-xs-10">
+	<input type="text" class="form-control" id="text" placeholder="Отчество">
+</div>
+</div>
+<div class="form-group">
+<label for="text" class="col-xs-2 control-label">Стаж:</label>
+<div class="col-xs-10">
+	<input type="text" class="form-control" id="text" placeholder="Номер телефона">
+</div>
+</div>
+<div class="form-group">
+<label for="text" class="col-xs-2 control-label">Должность</label>
+<div class="col-xs-10">
+	<input type="text" class="form-control" id="text" placeholder="Отчество">
+</div>
+</div>
+<div class="form-group">
+<label for="text" class="col-xs-2 control-label">Дата рождения</label>
+<div class="col-xs-10">
+	<input type="text" class="form-control" id="text" placeholder="Отчество">
+</div>
+</div>
+<div class="form-group">
+<label for="text" class="col-xs-2 control-label">Пароль</label>
+<div class="col-xs-10">
+	<input type="text" class="form-control" id="text" placeholder="Отчество">
+</div>
+</div>
+<div class="form-group">
+<div class="col-xs-offset-2 col-xs-10">
+	<button type="submit" class="btn btn-default">Добавить</button>
+</div>
+</div>
+</form>
+	</div>
 </html>
