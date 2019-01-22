@@ -19,6 +19,7 @@ class user(models.Model):
 	Numm = models.CharField(max_length=15, verbose_name="Номер телефона")
 	Dolj = models.CharField(max_length=15, verbose_name="Должность")
 	StajR = models.CharField(max_length=15, verbose_name="должность")
+	Img = models.ImageField(blank=True, verbose_name='Ссылка картинки')
 	Passw = models.CharField(max_length=50, verbose_name="Пароль" )
 
 	def __str__(self):
@@ -51,3 +52,11 @@ class doctor(models.Model):
 	 def __str__(self):
  		return self.Dolzhnost
 
+class Visit(models.Model):
+	user = models.ForeignKey('user', on_delete=models.CASCADE,)
+	client = models.ForeignKey('client', on_delete=models.CASCADE,)
+	servies = models.ForeignKey('servers', on_delete=models.CASCADE,)
+	date = models.DateTimeField()
+
+	def __str__(self):
+		return self.user
