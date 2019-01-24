@@ -19,7 +19,6 @@ class user(models.Model):
 	Numm = models.CharField(max_length=15, verbose_name="Номер телефона")
 	Dolj = models.CharField(max_length=15, verbose_name="Должность")
 	StajR = models.CharField(max_length=15, verbose_name="должность")
-	Img = models.ImageField(blank=True, verbose_name='Ссылка картинки')
 	Passw = models.CharField(max_length=50, verbose_name="Пароль" )
 
 	def __str__(self):
@@ -62,9 +61,9 @@ class Visit(models.Model):
 		return self.user
 
 class Log(models.Model):
-	user = models.CharField(max_length=40)
+	username = models.CharField(max_length=40)
 	quary = models.CharField(max_length=20)
-	timestamp = models.DateTimeField()
+	date_time = models.DateTimeField()
 
 	def __str__(self):
 		return self.user
