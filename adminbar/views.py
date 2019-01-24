@@ -1,35 +1,43 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.views.decorators.csrf import csrf_protect
-from clinic.models import user
+from clinic.models import user, user
 from django.core.exceptions import ObjectDoesNotExist
 
 @csrf_protect
 def index(request):
+	date = {}
 	#if not request.user.is_authenticated:
 	#	return HttpResponseRedirect('/lk/login/')
 	if request.session['user'] == "dell":
 		return HttpResponseRedirect('/lk/login/')
 	else:
-		return render(request,'adminbar/index.html')
+		us =  user.objects.get(id = request.session['user'])
+		date['Type'] = us.Type
+		date['Fam'] = us.Fam
+		date['Im'] = us.Im
+		date['Otch'] = us.Otch
+		print(us.Type)
+		return render(request,'adminbar/index.html', {'date' : date})
 
 
 
 
 @csrf_protect
 def login(request):
-#
+	date = {}
 	if request.session['user'] != "dell":
 		return HttpResponseRedirect('/lk/')
 	if request.POST:
-		Fam = request.POST.get('username', '')
+		Tel = request.POST.get('username', '')
 		Passw = request.POST.get('password', '')
 		try:
-			us =  user.objects.get(Fam = Fam, Passw = Passw)
+			us =  user.objects.get(Numm = Tel, Passw = Passw)
 			request.session['user'] = us.id
 			return HttpResponseRedirect('/lk/')
 		except ObjectDoesNotExist:
-			return HttpResponseRedirect('/')
+			date['login_error'] = "Пользователь не найден!"
+			return render(request, 'adminbar/login.html', date)
 
 	return render(request,'adminbar/login.html')
 
@@ -39,3 +47,18 @@ def logout(request):
 	except KeyError:
 		pass
 	return HttpResponseRedirect('/lk/login/')
+
+
+def updall(request):
+	date = {}
+	if request.session['user'] == "dell":
+		return HttpResponseRedirect('/lk/login/')
+	else:
+		us =  user.objects.get(id = request.session['user'])
+		date['Type'] = us.Type
+		date['Fam'] = us.Fam
+		date['Im'] = us.Im
+		date['Otch'] = us.Otch
+		print(us.Ty[0][1])
+		red = user.objects.all()
+		return render(request,'adminbar/udall.html', {'date' : date, 'pul': red})	
