@@ -13,13 +13,16 @@ class client(models.Model):
 
 
 class user(models.Model):
+	Ty =(('V', 'Врач'),('S', 'Секретарь'))
 	Fam = models.CharField(max_length=30, verbose_name="Фамилия")
 	Im = models.CharField(max_length=15, verbose_name="Имя")
 	Otch = models.CharField(max_length=20, verbose_name="Отчество")
 	Numm = models.CharField(max_length=15, verbose_name="Номер телефона")
 	Dolj = models.CharField(max_length=15, verbose_name="Должность")
-	StajR = models.CharField(max_length=15, verbose_name="должность")
+	StajR = models.CharField(max_length=15, verbose_name="Стаж")
+	Img = models.ImageField(blank=True, verbose_name="Ссылка картинки")
 	Passw = models.CharField(max_length=50, verbose_name="Пароль" )
+	Type = models.CharField(max_length=1, choices=Ty)
 
 	def __str__(self):
 		return self.Fam
@@ -52,9 +55,9 @@ class doctor(models.Model):
  		return self.Dolzhnost
 
 class Visit(models.Model):
-	user = models.ForeignKey('user', on_delete=models.CASCADE,)
-	client = models.ForeignKey('client', on_delete=models.CASCADE,)
-	servies = models.ForeignKey('servers', on_delete=models.CASCADE,)
+	user = models.ForeignKey("user", on_delete=models.CASCADE,)
+	client = models.ForeignKey("client", on_delete=models.CASCADE,)
+	servies = models.ForeignKey("servers", on_delete=models.CASCADE,)
 	date = models.DateTimeField()
 
 	def __str__(self):
