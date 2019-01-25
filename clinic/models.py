@@ -33,7 +33,7 @@ class content(models.Model):
 		return self.Title
 
 class servers(models.Model):
-	Title = models.CharField(max_length=15, verbose_name="Заголовок")
+	Title = models.CharField(max_length=50, verbose_name="Заголовок")
 	Description = models.CharField(max_length=120, verbose_name="Описание")
 	Price = models.CharField(max_length=7, verbose_name="Цена")
 
