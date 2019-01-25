@@ -10,6 +10,13 @@
 
 <body>
   <h1>sadsa</h1>
+  <form method="POST" novalidate>
+          {% csrf_token %}
+      <table>
+          {{ form }}
+      </table>
+      <input type="submit" value="Send" >
+  </form>
 </body>
 
 </html>
