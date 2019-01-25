@@ -35,8 +35,8 @@
     					Клиенты
 					  </button>
   					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-  						  <a class="dropdown-item" href="./client/add/">Добавить</a>
-  						  <a class="dropdown-item" href="./client/upd/">Редактировать</a>
+  						  <a class="dropdown-item" href="/lk/client/add/">Добавить</a>
+  						  <a class="dropdown-item" href="/lk/client/upd/">Редактировать</a>
 					  </div>
 					</div>
 					{% endif %}
@@ -45,9 +45,9 @@
 						Новости
 					</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							{% if date.Type == "S" %}<a class="dropdown-item" href="./news/add/">Добавить</a>{% endif %}
-							{% if date.Type == "S" %}<a class="dropdown-item" href="./news/upd/">Редактировать</a>{% endif %}
-							{% if date.Type == "V" %}<a class="dropdown-item" href="./news/view/">Просмотр</a>{% endif %}
+							{% if date.Type == "S" %}<a class="dropdown-item" href="/lk/news/add/">Добавить</a>{% endif %}
+							{% if date.Type == "S" %}<a class="dropdown-item" href="/lk/news/upd/">Редактировать</a>{% endif %}
+							{% if date.Type == "V" %}<a class="dropdown-item" href="/lk/news/view/">Просмотр</a>{% endif %}
 					</div>
 				</div>
 				
@@ -60,8 +60,8 @@
 							Врачи
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="./user/add/">Добавить</a>
-								<a class="dropdown-item" href="./user/upd/">Редактировать</a>
+								<a class="dropdown-item" href="/lk/user/add/">Добавить</a>
+								<a class="dropdown-item" href="/lk/user/upd/">Редактировать</a>
 						</div>
 					</div>
 					{% endif %}
@@ -71,9 +71,9 @@
 						Услуги
 					</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							{% if date.Type == "S" %}<a class="dropdown-item" href="#">Добавить</a>{% endif %}
-							{% if date.Type == "S" %}<a class="dropdown-item" href="#">Редактировать</a>{% endif %}
-							{% if date.Type == "V" %}<a class="dropdown-item" href="#">Просмотр</a>{% endif %}
+							{% if date.Type == "S" %}<a class="dropdown-item" href="/lk/serv/add/">Добавить</a>{% endif %}
+							{% if date.Type == "S" %}<a class="dropdown-item" href="/lk/serv/upd/">Редактировать</a>{% endif %}
+							{% if date.Type == "V" %}<a class="dropdown-item" href="/lk/serv/view/">Просмотр</a>{% endif %}
 					</div>
 				</div>
 			</nav>
