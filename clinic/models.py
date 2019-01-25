@@ -56,9 +56,10 @@ class doctor(models.Model):
 
 class Visit(models.Model):
 	user = models.ForeignKey("user", on_delete=models.CASCADE,)
-	client = models.ForeignKey("client", on_delete=models.CASCADE,)
-	servies = models.ForeignKey("servers", on_delete=models.CASCADE,)
+	#client = models.ForeignKey("client", on_delete=models.CASCADE,)
+	#servies = models.ForeignKey("servers", on_delete=models.CASCADE,) 
 	date = models.DateTimeField()
+	Numm = models.CharField(max_length=15, verbose_name="Номер телефона")
 
 	def __str__(self):
 		return self.user

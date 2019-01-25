@@ -18,9 +18,45 @@
 	<div class="container">
 		<header class="blog-header py-3">
 			<div class="row flex-nowrap justify-content-between align-items-center">
-				<div class="col-4 pt-1">
-					<a class="text-muted" href="/register.html">Запись на прием</a>
+				<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			 <a id="modal-689932" href="#modal-container-689932" role="button" class="text-muted" data-toggle="modal">Запись на прием</a>
+			
+			<div class="modal fade" id="modal-container-689932" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="myModalLabel">
+								Выберите врача
+							</h5> 
+							<button type="button" class="close" data-dismiss="modal">
+								<span aria-hidden="true">×</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							{% for twice in us %}
+								 <a href="/register/{{twice.id}}/">{{twice.Fam}}</a>
+							{% endfor %}
+						</div>
+						<div class="modal-footer">
+							 
+							<button type="button" class="btn btn-primary">
+								Save changes
+							</button> 
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">
+								Close
+							</button>
+						</div>
+					</div>
+					
 				</div>
+				
+			</div>
+			
+		</div>
+	</div>
+</div>
 				<div class="col-4 text-center">
 					<a class="blog-header-logo text-dark" href="#">Стоматология "Вылечим всё!"</a>
 				</div>
@@ -87,8 +123,8 @@
 					<div class="col-md-4 box">
 						<div class="card mb-4 shadow-sm">
 							<div class="card-body">
-								<H1 class="card-text">Фамилия: {{twice.Title}}</H1>
-								<p class="lead my-3">Текст: {{twice.Description}}</p>
+								<H5 class="card-text">Фамилия: {{twice.Fam}}</H5>
+								<H5 class="card-text">Должность: {{twice.Dolj}}</H5>
 							</div>
 						</div>
 					</div>

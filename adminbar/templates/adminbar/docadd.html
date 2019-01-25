@@ -1,0 +1,15 @@
+{% extends 'adminbar/bar.html' %}
+{% block title %}Добавление врачей{% endblock %}
+{% block body %}
+
+<form action="" method="post">
+  {% csrf_token %}
+    {{ form }}
+  <button type="submit" class="btn btn-primary">Сохранить</button>
+</form>
+<script type="text/javascript">
+(window).bind("pageshow", function() {
+});
+</script>
+
+{% endblock %}
