@@ -62,3 +62,11 @@ class Visit(models.Model):
 
 	def __str__(self):
 		return self.user
+
+class Log(models.Model):
+	username = models.CharField(max_length=40)
+	quary = models.CharField(max_length=20)
+	date_time = models.DateTimeField()
+
+	def __str__(self):
+		return self.user
